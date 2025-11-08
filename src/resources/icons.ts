@@ -65,7 +65,7 @@ export const iconLibrary: Record<string, IconType> = {
   figma: SiFigma,
   python: SiPython,
   django: SiDjango,
-  aws: SiAmazonaws,
+  aws: SiAmazon,
   docker: SiDocker,
   react: SiReact,
   facebook: FaFacebook,
