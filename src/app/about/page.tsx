@@ -101,8 +101,8 @@ export default function About() {
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
-                {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
+                {person.languages.map((language) => (
+                  <Tag key={language} size="l">
                     {language}
                   </Tag>
                 ))}
@@ -288,8 +288,8 @@ export default function About() {
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                {about.technical.skills.map((skill) => (
+                  <Column key={skill.title} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -298,8 +298,8 @@ export default function About() {
                     </Text>
                     {skill.tags && skill.tags.length > 0 && (
                       <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                        {skill.tags.map((tag) => (
+                          <Tag key={`${skill.title}-${tag.name}`} size="l" prefixIcon={tag.icon}>
                             {tag.name}
                           </Tag>
                         ))}
@@ -307,9 +307,9 @@ export default function About() {
                     )}
                     {skill.images && skill.images.length > 0 && (
                       <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
+                        {skill.images.map((image) => (
                           <Row
-                            key={index}
+                            key={`${skill.title}-${image.src}`}
                             border="neutral-medium"
                             radius="m"
                             minWidth={image.width}

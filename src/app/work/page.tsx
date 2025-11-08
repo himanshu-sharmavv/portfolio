@@ -1,6 +1,5 @@
-import { Button, Column, Heading, Media, Meta, Row, Schema, Text, SmartLink } from "@once-ui-system/core";
+import { Column, Heading, Media, Meta, Row, Schema, Text, SmartLink } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
-import { Projects } from "@/components/work/Projects";
 import type React from "react";
 
 export async function generateMetadata() {
@@ -83,9 +82,9 @@ export default function Work() {
               {/* Company work images */}
               {experience.images && experience.images.length > 1 && (
                 <Row fillWidth paddingTop="m" gap="12" wrap>
-                  {experience.images.slice(1).map((image, imgIndex) => (
+                  {experience.images.slice(1).map((image) => (
                     <Row
-                      key={imgIndex}
+                      key={`${experience.company}-${image.src}`}
                       border="neutral-medium"
                       radius="m"
                       style={{ maxWidth: '300px' }}

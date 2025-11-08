@@ -38,7 +38,7 @@ export async function generateMetadata({
     : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
+  const post = posts.find((p) => p.slug === slugPath);
 
   if (!post) return {};
 
@@ -62,7 +62,7 @@ export default async function Project({
     : routeParams.slug || "";
 
   const allPosts = getPosts(["src", "app", "work", "projects"]);
-  const post = allPosts.find((post) => post.slug === slugPath);
+  const post = allPosts.find((p) => p.slug === slugPath);
 
   if (!post) {
     console.error("Post not found for slug:", slugPath);
@@ -110,7 +110,7 @@ export default async function Project({
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
           <Text variant="label-default-m" onBackground="brand-weak">
             {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
+              <span key={member.name}>
                 {idx > 0 && (
                   <Text as="span" onBackground="neutral-weak">
                     ,{" "}
