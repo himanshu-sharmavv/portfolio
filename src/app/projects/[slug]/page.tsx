@@ -18,9 +18,7 @@ import { ScrollToHash, CustomMDX } from "@/components";
 import type { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
-export const revalidate = 0;
+export const dynamicParams = false; // Only generate specified paths
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -48,7 +46,7 @@ export async function generateMetadata({
     title: post.metadata.title,
     description: post.metadata.summary,
     baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+    image: post.metadata.image || post.metadata.images[0] || `${baseURL}/images/og/home.jpg`,
     path: `${projects.path}/${post.slug}`,
   });
 }
@@ -90,7 +88,7 @@ export default async function Project({
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
         image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+          post.metadata.image || post.metadata.images[0] || `${baseURL}/images/og/home.jpg`
         }
         author={{
           name: person.name,

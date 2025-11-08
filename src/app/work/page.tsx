@@ -1,4 +1,4 @@
-import { Button, Column, Heading, Media, Meta, Row, Schema, Text } from "@once-ui-system/core";
+import { Button, Column, Heading, Media, Meta, Row, Schema, Text, SmartLink } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 import type React from "react";
@@ -8,7 +8,7 @@ export async function generateMetadata() {
     title: work.title,
     description: work.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
+    image: `${baseURL}/images/og/home.jpg`,
     path: work.path,
   });
 }
@@ -22,7 +22,7 @@ export default function Work() {
         path={work.path}
         title={work.title}
         description={work.description}
-        image={`/api/og/generate?title=${encodeURIComponent(work.title)}`}
+        image={`${baseURL}/images/og/home.jpg`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -49,16 +49,11 @@ export default function Work() {
                     />
                   )}
                   {experience.link ? (
-                    <Button
-                      href={experience.link}
-                      variant="ghost"
-                      size="l"
-                      style={{ padding: 0, minHeight: 'auto' }}
-                    >
+                    <SmartLink href={experience.link}>
                       <Text variant="heading-strong-l">
                         {experience.company}
                       </Text>
-                    </Button>
+                    </SmartLink>
                   ) : (
                     <Text variant="heading-strong-l">
                       {experience.company}

@@ -11,6 +11,7 @@ import {
   Meta,
   Schema,
   Row,
+  SmartLink,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -22,7 +23,7 @@ export async function generateMetadata() {
     title: about.title,
     description: about.description,
     baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
+    image: `${baseURL}/images/og/home.jpg`,
     path: about.path,
   });
 }
@@ -58,7 +59,7 @@ export default function About() {
         title={about.title}
         description={about.description}
         path={about.path}
-        image={`/api/og/generate?title=${encodeURIComponent(about.title)}`}
+        image={`${baseURL}/images/og/home.jpg`}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -219,17 +220,11 @@ export default function About() {
                           />
                         )}
                         {experience.link ? (
-                          <Button
-                            id={experience.company}
-                            href={experience.link}
-                            variant="ghost"
-                            size="l"
-                            style={{ padding: 0, minHeight: 'auto' }}
-                          >
-                            <Text variant="heading-strong-l">
+                          <SmartLink href={experience.link}>
+                            <Text id={experience.company} variant="heading-strong-l">
                               {experience.company}
                             </Text>
-                          </Button>
+                          </SmartLink>
                         ) : (
                           <Text id={experience.company} variant="heading-strong-l">
                             {experience.company}
