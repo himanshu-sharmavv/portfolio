@@ -31,6 +31,12 @@ const nextConfig = {
     silenceDeprecations: ["legacy-js-api"],
   },
   trailingSlash: true,
+  productionBrowserSourceMaps: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
 };
 
 export default withMDX(nextConfig);
