@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "Sharma",
   name: "Himanshu Sharma",
   role: "Full Stack Developer",
-  avatar: "/portfolio/images/avatar.jpeg",
+  avatar: "/images/avatar.jpeg",
   email: "himanshusharma.dev80@gmail.com",
   location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
@@ -40,7 +40,7 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/portfolio/images/og/home.jpg",
+  image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
@@ -112,7 +112,7 @@ const about: About = {
         ],
         images: [
           {
-            src: "/portfolio/images/companies/digitalalpha_logo.jpeg",
+            src: "/images/companies/digitalalpha_logo.jpeg",
             alt: "Digital Alpha",
             width: 8,
             height: 4,
@@ -130,7 +130,7 @@ const about: About = {
         ],
         images: [
           {
-            src: "/portfolio/images/companies/alemeno.jpeg",
+            src: "/images/companies/alemeno.jpeg",
             alt: "Alemeno",
             width: 8,
             height: 4,
@@ -148,7 +148,7 @@ const about: About = {
         ],
         images: [
           {
-            src: "/portfolio/images/companies/across_the_globe_atg__logo.jpeg",
+            src: "/images/companies/across_the_globe_atg__logo.jpeg",
             alt: "ATG.World",
             width: 8,
             height: 4,
