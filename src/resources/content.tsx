@@ -56,7 +56,7 @@ const home: Home = {
         </Text>
       </Row>
     ),
-    href: "/work/epiphai-ai-automation-platform",
+    href: "/projects/epiphai-ai-automation-platform",
   },
   subline: (
     <>
