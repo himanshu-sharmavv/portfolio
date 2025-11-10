@@ -78,7 +78,7 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -214,7 +214,7 @@ export default function About() {
                         {experience.images && experience.images.length > 0 && (
                           <Media
                             radius="s"
-                            style={{ width: '32px', height: '32px', objectFit: 'contain' }}
+                            style={{ width: "32px", height: "32px", objectFit: "contain" }}
                             alt={experience.images[0].alt}
                             src={experience.images[0].src}
                           />
