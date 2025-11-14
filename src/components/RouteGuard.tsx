@@ -29,8 +29,13 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const checkRouteEnabled = () => {
         if (!pathname) return false;
 
-        // Remove basePath if present
-        const cleanPath = pathname.replace(/^\/portfolio/, '');
+        // Remove basePath if present and trailing slash
+        let cleanPath = pathname.replace(/^\/portfolio/, '').replace(/\/$/, '') || '/';
+        
+        console.log('RouteGuard - pathname:', pathname);
+        console.log('RouteGuard - cleanPath:', cleanPath);
+        console.log('RouteGuard - routes:', routes);
+        console.log('RouteGuard - cleanPath in routes:', cleanPath in routes);
 
         if (cleanPath in routes) {
           return routes[cleanPath as keyof typeof routes];
